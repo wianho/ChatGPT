@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+#define NUM_DAYS 7 // number of days in a week
+
+int main(void) {
+  int calories[NUM_DAYS]; // array to store the number of calories consumed each day
+  int totalCalories = 0; // variable to store the total number of calories consumed
+  float averageCalories; // variable to store the average number of calories consumed per day
+
+  // prompt the user to enter the number of calories consumed each day
+  printf("Enter the number of calories consumed each day:\n");
+  for (int i = 0; i < NUM_DAYS; i++) {
+    printf("Day %d: ", i + 1);
+    scanf("%d", &calories[i]);
+    totalCalories += calories[i]; // add the calories consumed on this day to the total
+  }
+
+  // calculate the average number of calories consumed per day
+  averageCalories = (float)totalCalories / NUM_DAYS;
+
+  // display the average number of calories consumed per day
+  printf("Average number of calories consumed per day: %.2f\n", averageCalories);
+
+  return 0;
+}
