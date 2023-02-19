@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+double calculateMortgagePayment(double P, double i, double n) {
+    double numerator = P * i * pow(1+i, n);
+    double denominator = pow(1+i, n) - 1;
+    double M = numerator / denominator;
+    return M;
+}
+
+int main() {
+    double principal, interestRate, years;
+    printf("Enter the principal: ");
+    scanf("%lf", &principal);
+    printf("Enter the annual interest rate (as a decimal): ");
+    scanf("%lf", &interestRate);
+    printf("Enter the term of the loan (in years): ");
+    scanf("%lf", &years);
+
+    double monthlyInterestRate = interestRate / 12.0;
+    double months = years * 12.0;
+    double mortgagePayment = calculateMortgagePayment(principal, monthlyInterestRate, months);
+    printf("Monthly mortgage payment: $%.2f\n", mortgagePayment);
+
+    return 0;
+}
